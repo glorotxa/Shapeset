@@ -1,0 +1,5 @@
+Shapeset is a small package to generate simple 2D images of polygons, intended to test machine learning algorithms.
+
+The code is written in python (2.5) and necessitates pygame (1.8.1).
+
+Please look first at simpleexample.py for example of use and examplecurripolygen.py for visualization of generated samples.

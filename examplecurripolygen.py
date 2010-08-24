@@ -1,13 +1,14 @@
-# How to create a curridata instance with the polygon generator (shapeset)
 import pygame
+
+
 from curridata import *
 from buildfeaturespolygon import *
 from polygongen import *
 
-n=20
-m=5
+n=1
+m=1
 
-genparams = {'inv_chance' : 0.5, 'img_shape' : (32,32), 'n_vert_list' : [3,4,30], 'fg_min' : 0.55, 'fg_max' : 1.0,\
+genparams = {'inv_chance' : 0.5, 'img_shape' : (64,64), 'n_vert_list' : [3,4,30], 'fg_min' : 0.55, 'fg_max' : 1.0,\
         'bg_min' :0.0, 'bg_max': 0.45, 'rot_min' : 0.0, 'rot_max' : 1, 'pos_min' : 0, 'pos_max' : 1, \
         'scale_min' : 0.2, 'scale_max':0.8, 'rotation_resolution' : 255,\
         'nb_poly_max' :2, 'nb_poly_min' :1, 'overlap_max' : 0.5, 'poly_type' :2, 'rejectionmax' : 50,\
@@ -21,7 +22,7 @@ dependencies = [None,{'segmentation':4},None,None,{'depthmap':2},None,{'segmenta
 funcparams={'neighbor':'V8','gaussfiltbool' : False, 'sigma' : 0.5 , 'size': 5, 'neg' : True}
 nfeatures = 6
 batchsize = n*m
-seed = 1
+seed = 0
 
 curridata=Curridata(nfeatures,datagenerator,genparams,funclist,dependencies,funcparams,batchsize,seed)
 #curridata.changegenparam(genparams2)
@@ -142,6 +143,8 @@ def genex(curridata,n,mode=1):
 
 
 #curridata.gen.rot_min=0
-it =showresult(it)
+for i in range(100):
+    it =showresult(it)
+    raw_input('Press enter to continue generation')
 
 #pygame.display.quit()
